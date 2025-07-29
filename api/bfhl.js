@@ -11,7 +11,7 @@ module.exports = (req, res) => {
   }
 
   const userId = "swarit_sharma_1022002";
-  const email = "swarit2430.be22@chitkar.edu.in";
+  const email = "swarit2430.be22@chitkara.edu.in";
   const rollNumber = "2210992430";
 
   let evenNumbers = [];
