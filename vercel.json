@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/bfhl.js",
+      "src": "bajaj/api/bfhl.js",
       "use": "@vercel/node"
     }
   ],
@@ -10,7 +10,12 @@
     {
       "src": "/bfhl",
       "methods": ["POST"],
-      "dest": "api/bfhl.js"
+      "dest": "bajaj/api/bfhl.js"
+    },
+    {
+      "src": "/",
+      "methods": ["GET"],
+      "dest": "bajaj/api/bfhl.js"
     }
   ]
 }
