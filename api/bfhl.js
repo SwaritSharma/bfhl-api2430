@@ -9,10 +9,6 @@ export default function handler(req, res) {
     const email = 'swarit2430.be22@chitkara.edu.in';
     const rollNumber = '2210992430';
 
-    function isNumber(str) {
-      return /^\d+$/.test(str);
-    }
-
     const data = req.body.data;
 
     if (!Array.isArray(data)) {
@@ -31,7 +27,7 @@ export default function handler(req, res) {
         item = String(item);
       }
 
-      if (isNumber(item)) {
+      if (/^\d+$/.test(item)) {
         const num = parseInt(item, 10);
         sum += num;
         if (num % 2 === 0) {
@@ -39,18 +35,14 @@ export default function handler(req, res) {
         } else {
           odd_numbers.push(item);
         }
+      } else if (/^[a-zA-Z]+$/.test(item)) {
+        alphabets.push(item.toUpperCase());
+        for (let ch of item) allAlphaChars.push(ch);
       } else {
-        if (/^[a-zA-Z]+$/.test(item)) {
-          alphabets.push(item.toUpperCase());
-          for (let ch of item) allAlphaChars.push(ch);
-        } else {
-          if (/[a-zA-Z]/.test(item)) {
-            alphabets.push(item.toUpperCase());
-            for (let ch of item) {
-              if (/[a-zA-Z]/.test(ch)) allAlphaChars.push(ch);
-            }
-          } else {
-            special_characters.push(item);
+        special_characters.push(item);
+        for (let ch of item) {
+          if (/[a-zA-Z]/.test(ch)) {
+            allAlphaChars.push(ch);
           }
         }
       }
